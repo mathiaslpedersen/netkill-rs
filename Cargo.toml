@@ -8,6 +8,5 @@ edition = "2021"
 [dependencies]
 anyhow = "1.0.57"
 clap = { version = "3.1.17", features = ["derive"] }
-packet = "0.1.4"
 pnet = "0.30.0"
 thiserror = "1.0.31"
