@@ -133,7 +133,7 @@ impl Command {
         let (mut tx, mut rx) = match datalink::channel(&interface, Default::default()) {
             Ok(Ethernet(tx, rx)) => (tx, rx),
             Ok(_) => panic!(),
-            Err(e) => panic!("{}", e),
+            Err(e) => return Err(Error::OpenChannel { source: e }.into()),
         };
 
         println!("Requesting gateway address...");

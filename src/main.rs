@@ -28,7 +28,7 @@ fn main() -> Result<()> {
                 "{}",
                 datalink::interfaces()
                     .iter()
-                    .map(|interface| format!("{}: {}", interface.index, interface.description))
+                    .map(|interface| format!("{}: {} {}", interface.index, interface.name, interface.description))
                     .collect::<Vec<_>>()
                     .join("\n")
             );

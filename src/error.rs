@@ -6,4 +6,8 @@ pub enum Error {
     InvalidInterface,
     #[error("Failed to find host IPv4 address")]
     NoIpv4,
+    #[error("Failed to open datalink channel. Are you root?")]
+    OpenChannel {
+        source: std::io::Error
+    },
 }
