@@ -1,0 +1,13 @@
+[package]
+name = "netkill-rs"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow = "1.0.57"
+clap = { version = "3.1.17", features = ["derive"] }
+packet = "0.1.4"
+pnet = "0.30.0"
+thiserror = "1.0.31"
